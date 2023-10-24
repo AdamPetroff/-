@@ -1,0 +1,39 @@
+version: "3"
+services:
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile.testing
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    environment:
+      DB_HOST: db-test
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: testingdb
+      DATABASE_URL: postgres://user:password@db-test:5432/testingdb
+      NODE_ENV: test
+    depends_on:
+      - db-test
+
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3001:3000"
+  db-test:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testingdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-test_data:/var/lib/postgresql/data
+
+volumes:
+  postgres-test_data:

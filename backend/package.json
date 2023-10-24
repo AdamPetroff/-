@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/index.ts",
+    "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
     "test": "jest",
     "db:make-migration": "npx prisma migrate dev",
     "db:push": "npx prisma db push",
-    "db:migrate": "npx prisma migrate deploy"
+    "db:migrate": "npx prisma migrate deploy",
+    "db:generate": "npx prisma generate"
   },
   "keywords": [],
   "author": "Adam Petroff",

@@ -39,3 +39,4 @@ I wanted to try this because it seemed like a fun idea and I wanted to see how w
 - Tests for the frontend
 - adding an option to refetch the data from the sReality website
 - sorting
+- optimize the docker setup - I ran into some issues and had to use a workaround which is slower I think

@@ -13,9 +13,9 @@ You have to have Docker installed on your machine.
 ### Running the app
 
 1. Clone the repository
-2. Run `docker-compose up` in the root directory of the repository
+2. Run `docker-compose up` in the root directory of the repository. Give it a minute so that the scraping can happen.
 3. If you want to try the special search feature, you have to put your OpenAI API key into the `.env` file in the root directory of the repository. The key should be in the format `OPENAI_API_KEY=your_key_here`. You can skip this step, and the app will default to a simple keyword search.
-4. The app should be running on `localhost:3000`
+4. The app should be running on `http://localhost:3000/`
 
 You can run tests for the backend by running `npm test` in the project root directory. This command will start a script which runs a testing version of the docker container and runs the tests inside it. The tests are written using Jest.
 

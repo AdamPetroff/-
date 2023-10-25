@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
 import Demo from "./components/PropertiesList";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";

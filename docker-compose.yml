@@ -6,7 +6,7 @@ services:
       [
         "sh",
         "-c",
-        "npm install && npm run db:generate && npm run db:migrate && npm start",
+        "npm run db:generate && npm run db:migrate && npm start",
       ]
     build:
       context: ./backend
@@ -25,16 +25,18 @@ services:
       DATABASE_URL: postgres://user:password@db:5432/mydatabase
 
   frontend:
-    command: ["sh", "-c", "npm install && npm start"]
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
+    container_name: react_vite_app
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
-    # environment:
-    #   CHOKIDAR_USEPOLLING: "true"
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
   db:
     image: postgres
     environment:

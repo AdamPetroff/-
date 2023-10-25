@@ -1,4 +1,4 @@
-if (!process.env.REACT_APP_API_URI) {
-  throw new Error("REACT_APP_API_URI is not defined");
+if (!import.meta.env.VITE_API_URI) {
+  throw new Error("VITE_API_URI is not defined");
 }
-export const API_URL = process.env.REACT_APP_API_URI;
+export const API_URL = import.meta.env.VITE_API_URI as string;

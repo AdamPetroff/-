@@ -1,20 +1,14 @@
-# Use an official Node runtime as a parent image
-FROM node:latest
+FROM node:18-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
-RUN npm install
+RUN yarn install --silent
 
-# Copy the rest of the application source code from the current directory to the working directory
 COPY . .
 
-# Expose the port the app runs in
 EXPOSE 3000
 
-# Define environment variable
-# ENV REACT_APP_API_URI http://backend:3001
-
-# Run npm start when the container launches
-CMD ["npm", "start"]
+CMD ["yarn", "run", "dev"]
